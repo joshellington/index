@@ -1,0 +1,1 @@
+$places = GooglePlaces::Client.new("AIzaSyC8ExVuSY5TIJEWx6KUckh-fwtxZdwcndA")

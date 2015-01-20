@@ -41,6 +41,9 @@ gem 'spring',        group: :development
 # Yelp
 gem 'yelp', require: 'yelp'
 
+# Google Places
+gem 'google_places', require: 'google_places'
+
 # Scraping
 gem 'nokogiri', require: 'nokogiri'
 

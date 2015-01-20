@@ -10,12 +10,17 @@ namespace :fetch do
     total_requests = (results.total / 20).ceil
     
     # for i in 1..total_requests
-    for i in 1..1
+    for i in 1..total_requests
       offset = i * 20
       page_params = {
         limit: 20,
         offset: offset
       }
+
+      puts "//////////////////////////"
+      puts Time.now
+      puts "Current offset: #{offset}"
+      puts '--------------------------'
 
       page_results = Yelp.client.search('Portland', page_params)
 
@@ -24,16 +29,17 @@ namespace :fetch do
         categories = []
         parking_options = []
         
-        if business.location.neighborhoods
+        begin
           business.location.neighborhoods.each do |name|
             neighborhood = Neighborhood.find_or_create_by(
               name: name
             )
             neighborhoods << neighborhood
           end
+        rescue
         end
 
-        if business.categories
+        begin
           business.categories.each do |category|
             category = Category.find_or_create_by(
               name: category[0],
@@ -41,6 +47,7 @@ namespace :fetch do
             )
             categories << category
           end
+        rescue
         end
         
         webpage = Nokogiri::HTML(open(business.mobile_url,
@@ -58,7 +65,7 @@ namespace :fetch do
             parking_options << parking_type
           end
 
-          puts parking_options.inspect
+          # puts parking_options.inspect
         rescue Exception => e
           puts e.inspect
           parking_text = false
@@ -99,6 +106,14 @@ namespace :fetch do
 
   desc "TODO"
   task seatgeek: :environment do
+  end
+
+  desc "Fetch Google Places data."
+  task google_places: :environment do
+    lat = 45.523062
+    lng = -122.676482
+
+
   end
 
 end
