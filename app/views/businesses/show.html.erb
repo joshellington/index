@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @business.name %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <img src="<%= @business.image_url %>">
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @business.url %>
+</p>
+
+<p>
+  <strong>Mobile url:</strong>
+  <%= @business.mobile_url %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @business.phone %>
+</p>
+
+<p>
+  <strong>Display phone:</strong>
+  <%= @business.display_phone %>
+</p>
+
+<p>
+  <strong>Review count:</strong>
+  <%= @business.review_count %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @business.rating %>
+</p>
+
+<p>
+  <strong>Rating img url large:</strong>
+  <%= @business.rating_img_url_large %>
+</p>
+
+<p>
+  <strong>Snippet text:</strong>
+  <%= @business.snippet_text %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @business.address %>
+</p>
+
+<p>
+  <strong>Display address:</strong>
+  <%= @business.display_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @business.city %>
+</p>
+
+<p>
+  <strong>State code:</strong>
+  <%= @business.state_code %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @business.postal_code %>
+</p>
+
+<p>
+  <strong>Country code:</strong>
+  <%= @business.country_code %>
+</p>
+
+<p>
+  <strong>Cross streets:</strong>
+  <%= @business.cross_streets %>
+</p>
+
+<p>
+  <strong>Is claimed:</strong>
+  <%= @business.is_claimed %>
+</p>
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

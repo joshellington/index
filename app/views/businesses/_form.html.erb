@@ -1,0 +1,89 @@
+<%= form_for(@business) do |f| %>
+  <% if @business.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+      <ul>
+      <% @business.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile_url %><br>
+    <%= f.text_field :mobile_url %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :display_phone %><br>
+    <%= f.text_field :display_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :review_count %><br>
+    <%= f.text_field :review_count %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :rating_img_url_large %><br>
+    <%= f.text_field :rating_img_url_large %>
+  </div>
+  <div class="field">
+    <%= f.label :snippet_text %><br>
+    <%= f.text_field :snippet_text %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :display_address %><br>
+    <%= f.text_field :display_address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state_code %><br>
+    <%= f.text_field :state_code %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :country_code %><br>
+    <%= f.text_field :country_code %>
+  </div>
+  <div class="field">
+    <%= f.label :cross_streets %><br>
+    <%= f.text_field :cross_streets %>
+  </div>
+  <div class="field">
+    <%= f.label :is_claimed %><br>
+    <%= f.check_box :is_claimed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
