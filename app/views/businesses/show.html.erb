@@ -6,6 +6,20 @@
 </p>
 
 <p>
+  <strong>Parking options:</strong>
+  <% @business.parking_options.each do |option| %>
+    <%= option.name %>,
+  <% end %>
+</p>
+
+<p>
+  <strong>Neighborhoods:</strong>
+  <% @business.neighborhoods.each do |hood| %>
+    <%= hood.name %>,
+  <% end %>
+</p>
+
+<p>
   <strong>Image url:</strong>
   <img src="<%= @business.image_url %>">
 </p>

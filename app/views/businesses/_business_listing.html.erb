@@ -1,0 +1,8 @@
+<div class="business col-md-4" data-lat="<%= biz.lat.to_f %>" data-lng="<%= biz.lng.to_f %>">
+  <h4><%= link_to biz.name, biz %></h4>
+  <p>
+    <% biz.neighborhoods.each_with_index do |hood,i| %>
+      <a href="/businesses/neighborhood/<%= hood.name.parameterize %>"><%= hood.name %></a><% unless i == biz.neighborhoods.count - 1 %>, <% end %>
+    <% end %>
+  </p>
+</div>

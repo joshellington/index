@@ -1,1 +1,16 @@
-Home!
+<h3>Parking Options</h3>
+<% @parking_options.each do |option| %>
+  <a href="/businesses/parking/<%= option.name.parameterize %>" class="large-link"><%= option.name %></a>
+<% end %>
+
+<h3>Neighborhoods</h3>
+<% @neighborhoods.each do |hood| %>
+  <% if hood.businesses.count > 1 %>
+    <a href="/businesses/neighborhood/<%= hood.name.parameterize %>" class="large-link"><%= hood.name %></a>
+  <% end %>
+<% end %>
+
+<h3>Categories</h3>
+<% @categories.each do |cat| %>
+  <a href="/businesses/category/<%= cat.name.parameterize %>" class="large-link"><%= cat.name %></a>
+<% end %>

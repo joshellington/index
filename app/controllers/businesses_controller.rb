@@ -21,6 +21,22 @@ class BusinessesController < ApplicationController
   def edit
   end
 
+  def parking_type
+    @type = params["type"].titleize.gsub('-','')
+    @businesses = Business.includes(:parking_options).where("parking_options.name" => @type)
+    puts @businesses.inspect
+  end
+
+  def neighborhood
+    @name = params["name"].titleize.gsub('-','')
+    @businesses = Business.includes(:neighborhoods).where("neighborhoods.name" => @name)
+  end
+
+  def category
+    @name = params["name"].titleize.gsub('-','')
+    @businesses = Business.includes(:categories).where("categories.name" => @name)
+  end
+
   # POST /businesses
   # POST /businesses.json
   def create
