@@ -4,6 +4,13 @@
 @import "mapbox";
 @import "MarkerCluster";
 @import "MarkerCluster.Default";
+
+$nprogress-color: #fff;
+$nprogress-height: 5px;
+$nprogress-zindex: 10100;
+
+@import "nprogress";
+@import "nprogress-bootstrap";
 @import "index";
 @import "businesses";
 // @import "scaffolds";

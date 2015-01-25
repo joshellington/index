@@ -32,4 +32,8 @@ a {
 #map {
   width: 100%;
   height: 600px;
+
+  &.single {
+    height: 400px;
+  }
 }

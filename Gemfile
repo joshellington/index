@@ -49,3 +49,6 @@ gem 'nokogiri', require: 'nokogiri'
 
 # Bootstrappin
 gem 'bootstrap-sass', '~> 3.3.3'
+
+# Loading animation
+gem 'nprogress-rails'

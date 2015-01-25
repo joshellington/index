@@ -5,4 +5,16 @@
       <a href="/businesses/neighborhood/<%= hood.name.parameterize %>"><%= hood.name %></a><% unless i == biz.neighborhoods.count - 1 %>, <% end %>
     <% end %>
   </p>
+
+  <p>
+    <% biz.categories.each_with_index do |cat,i| %>
+      <a href="/businesses/category/<%= cat.name.parameterize %>"><%= cat.name %></a><% unless i == biz.categories.count - 1 %>, <% end %>
+    <% end %>
+  </p>
+
+  <p>
+    <% biz.parking_options.each_with_index do |po,i| %>
+      <a href="/businesses/parking/<%= po.name.parameterize %>"><%= po.name %></a><% unless i == biz.parking_options.count - 1 %>, <% end %>
+    <% end %>
+  </p>
 </div>

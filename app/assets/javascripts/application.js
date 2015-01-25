@@ -16,4 +16,6 @@
 //= require bootstrap-sprockets
 //= require mapbox
 //= require leaflet.markercluster
+//= require nprogress
+//= require nprogress-turbolinks
 //= require index
