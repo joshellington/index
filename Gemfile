@@ -8,7 +8,7 @@ gem 'rails', '4.1.6'
 
 # Use MySQL
 gem 'mysql2'
-# gem 'yaml_db'
+gem 'yaml_db'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
