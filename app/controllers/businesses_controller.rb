@@ -39,14 +39,14 @@ class BusinessesController < ApplicationController
   end
 
   def near
-    @lat = params["lat"].to_f
-    @lng = params["lng"].to_f
+    @lat = params["lat"]
+    @lng = params["lng"]
     @limit = params["limit"].to_i
     @distance = params["distance"].to_f
     
-    if !@lat
-      @lat = request.location["latitude"]
-      @lng = request.location["longitude"]
+    if !@lat or !@lng
+      @lat = request.location.data["latitude"]
+      @lng = request.location.data["longitude"]
     end
 
     puts request.location.inspect
