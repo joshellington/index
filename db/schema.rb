@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128203600) do
+ActiveRecord::Schema.define(version: 20150128232631) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150128203600) do
     t.string   "yelp_id"
     t.decimal  "lat",                  precision: 10, scale: 6
     t.decimal  "lng",                  precision: 10, scale: 6
+    t.integer  "parking_spaces"
   end
 
   create_table "businesses_categories", force: true do |t|

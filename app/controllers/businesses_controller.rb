@@ -24,18 +24,18 @@ class BusinessesController < ApplicationController
 
   def parking_type
     @type = params["type"].titleize.gsub('-','')
-    @businesses = Business.includes(:parking_options).where("parking_options.name" => @type)
+    @businesses = Business.includes(:parking_options).where("parking_options.name" => @type).paginate(:page => params[:page])
     puts @businesses.inspect
   end
 
   def neighborhood
     @name = params["name"].titleize.gsub('-','')
-    @businesses = Business.includes(:neighborhoods).where("neighborhoods.name" => @name)
+    @businesses = Business.includes(:neighborhoods).where("neighborhoods.name" => @name).paginate(:page => params[:page])
   end
 
   def category
     @name = params["name"].titleize.gsub('-','')
-    @businesses = Business.includes(:categories).where("categories.name" => @name)
+    @businesses = Business.includes(:categories).where("categories.name" => @name).paginate(:page => params[:page])
   end
 
   def near

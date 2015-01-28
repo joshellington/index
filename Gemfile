@@ -60,3 +60,6 @@ gem 'nprogress-rails'
 
 # Geocoder
 gem 'geocoder'
+
+# Pagination
+gem 'will_paginate'

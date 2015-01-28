@@ -6,4 +6,5 @@ class Business < ActiveRecord::Base
 
   validates :yelp_id, uniqueness: true
   default_scope  { order(:name => :asc) }
+  self.per_page = 100
 end
