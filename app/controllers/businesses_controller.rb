@@ -44,9 +44,9 @@ class BusinessesController < ApplicationController
     @limit = params["limit"].to_i
     @distance = params["distance"].to_f
     
-    if !@lat and !@lng
-      @lat = request.location.latitude.to_f
-      @lng = request.location.longitude.to_f
+    if !@lat
+      @lat = request.location["latitude"]
+      @lng = request.location["longitude"]
     end
 
     puts request.location.inspect
