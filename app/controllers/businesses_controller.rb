@@ -49,6 +49,7 @@ class BusinessesController < ApplicationController
       @lng = request.location.longitude.to_f
     end
 
+    puts request.location.inspect
     puts @lat
     puts @lng
 
