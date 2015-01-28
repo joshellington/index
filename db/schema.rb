@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120082353) do
+ActiveRecord::Schema.define(version: 20150128203600) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150120082353) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "yelp_id"
+    t.decimal  "lat",                  precision: 10, scale: 6
+    t.decimal  "lng",                  precision: 10, scale: 6
   end
 
   create_table "businesses_categories", force: true do |t|
@@ -42,24 +44,24 @@ ActiveRecord::Schema.define(version: 20150120082353) do
     t.integer "category_id"
   end
 
-  add_index "businesses_categories", ["business_id"], name: "index_businesses_categories_on_business_id"
-  add_index "businesses_categories", ["category_id"], name: "index_businesses_categories_on_category_id"
+  add_index "businesses_categories", ["business_id"], name: "index_businesses_categories_on_business_id", using: :btree
+  add_index "businesses_categories", ["category_id"], name: "index_businesses_categories_on_category_id", using: :btree
 
   create_table "businesses_neighborhoods", force: true do |t|
     t.integer "business_id"
     t.integer "neighborhood_id"
   end
 
-  add_index "businesses_neighborhoods", ["business_id"], name: "index_businesses_neighborhoods_on_business_id"
-  add_index "businesses_neighborhoods", ["neighborhood_id"], name: "index_businesses_neighborhoods_on_neighborhood_id"
+  add_index "businesses_neighborhoods", ["business_id"], name: "index_businesses_neighborhoods_on_business_id", using: :btree
+  add_index "businesses_neighborhoods", ["neighborhood_id"], name: "index_businesses_neighborhoods_on_neighborhood_id", using: :btree
 
   create_table "businesses_parking_options", force: true do |t|
     t.integer "business_id"
     t.integer "parking_option_id"
   end
 
-  add_index "businesses_parking_options", ["business_id"], name: "index_businesses_parking_options_on_business_id"
-  add_index "businesses_parking_options", ["parking_option_id"], name: "index_businesses_parking_options_on_parking_option_id"
+  add_index "businesses_parking_options", ["business_id"], name: "index_businesses_parking_options_on_business_id", using: :btree
+  add_index "businesses_parking_options", ["parking_option_id"], name: "index_businesses_parking_options_on_parking_option_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
