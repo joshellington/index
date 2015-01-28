@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'businesses/parking/:type' => 'businesses#parking_type', as: :parking_type
   get 'businesses/neighborhood/:name' => 'businesses#neighborhood', as: :neighborhood
   get 'businesses/category/:name' => 'businesses#category', as: :category
+  get 'businesses/search/near' => 'businesses#near'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

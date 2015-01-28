@@ -1,5 +1,6 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   # GET /businesses
   # GET /businesses.json
@@ -35,6 +36,17 @@ class BusinessesController < ApplicationController
   def category
     @name = params["name"].titleize.gsub('-','')
     @businesses = Business.includes(:categories).where("categories.name" => @name)
+  end
+
+  def near
+    @lat = params["lat"].to_f
+    @lng = params["lng"].to_f
+    @limit = params["limit"].to_i
+    @distance = params["distance"].to_f
+
+    @businesses = Business.near([@lat, @lng], @distance).reorder('distance').limit(@limit)
+
+    respond_with(@businesses)
   end
 
   # POST /businesses
