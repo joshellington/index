@@ -43,6 +43,14 @@ class BusinessesController < ApplicationController
     @lng = params["lng"].to_f
     @limit = params["limit"].to_i
     @distance = params["distance"].to_f
+    
+    if !@lat and !@lng
+      @lat = request.location.latitude.to_f
+      @lng = request.location.longitude.to_f
+    end
+
+    puts @lat
+    puts @lng
 
     @businesses = Business.near([@lat, @lng], @distance).reorder('distance').limit(@limit)
 
