@@ -49,10 +49,6 @@ class BusinessesController < ApplicationController
       @lng = request.location.data["longitude"]
     end
 
-    puts request.location.inspect
-    puts @lat
-    puts @lng
-
     @businesses = Business.near([@lat, @lng], @distance).reorder('distance').limit(@limit)
 
     respond_with(@businesses)
