@@ -1,4 +1,4 @@
-<div class="business col-md-4" data-lat="<%= biz.lat.to_f %>" data-lng="<%= biz.lng.to_f %>">
+<div class="business col-md-4" data-lat="<%= biz.lat.to_f %>" data-lng="<%= biz.lng.to_f %>" id="<%= biz.id %>">
   <h4><%= link_to biz.name, biz %></h4>
   <p>
     <% biz.neighborhoods.each_with_index do |hood,i| %>

@@ -37,3 +37,9 @@ a {
     height: 400px;
   }
 }
+
+.business {
+  &.dimmed {
+    opacity: 0.2;
+  }
+}
