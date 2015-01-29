@@ -30,12 +30,27 @@ class BusinessesController < ApplicationController
 
   def neighborhood
     @name = params["name"].titleize.gsub('-','')
-    @businesses = Business.includes(:neighborhoods).where("neighborhoods.name" => @name).paginate(:page => params[:page])
+    @parking_type = params["parking_type"]
+    @options = ParkingOption.all
+    
+    if @parking_type
+      @businesses = Business.includes(:neighborhoods, :parking_options).where("neighborhoods.name" => @name, "parking_options.name" => @parking_type.titleize.gsub('-','')).paginate(:page => params[:page])
+    else
+      @businesses = Business.includes(:neighborhoods).where("neighborhoods.name" => @name).paginate(:page => params[:page])
+    end
   end
 
   def category
     @name = params["name"].titleize.gsub('-','')
-    @businesses = Business.includes(:categories).where("categories.name" => @name).paginate(:page => params[:page])
+    @name = params["name"].titleize.gsub('-','')
+    @parking_type = params["parking_type"]
+    @options = ParkingOption.all
+
+    if @parking_type
+      @businesses = Business.includes(:categories, :parking_options).where("categories.name" => @name, "parking_options.name" => @parking_type.titleize.gsub('-','')).paginate(:page => params[:page])
+    else
+      @businesses = Business.includes(:categories).where("categories.name" => @name).paginate(:page => params[:page])
+    end
   end
 
   def near

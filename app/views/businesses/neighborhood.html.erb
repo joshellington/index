@@ -1,6 +1,8 @@
 <h4>Neighborhood</h4>
-<h2><%= @name %></h2>
+<h2><%= @name %> <% if @parking_type %>- <%= @parking_type.titleize.gsub('-','') %><% end %></h2>
 <h6><%= page_entries_info @businesses %></h6>
+
+<h4>Filter by parking type: <a href="/businesses/neighborhood/<%= @name %>">All</a> / <% @options.each do |option| %><a href="?parking_type=<%= option.name.parameterize %>"><%= option.name %></a> / <% end %></h4>
 
 <div id="map"></div>
 
