@@ -63,3 +63,6 @@ gem 'geocoder'
 
 # Pagination
 gem 'will_paginate'
+
+# CORS support
+gem 'rack-cors', :require => 'rack/cors'
