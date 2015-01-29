@@ -25,7 +25,7 @@ class BusinessesController < ApplicationController
   def parking_type
     @type = params["type"].titleize.gsub('-','')
     @businesses = Business.includes(:parking_options).where("parking_options.name" => @type).paginate(:page => params[:page])
-    puts @businesses.inspect
+    # puts @businesses.inspect
   end
 
   def neighborhood
