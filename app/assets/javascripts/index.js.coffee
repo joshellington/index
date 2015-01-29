@@ -48,28 +48,29 @@ listingMap = ->
 
 
   map.addLayer(markers)
+  map.fitBounds(markers.getBounds())
 
-  map.on 'move', =>
-    inBounds = []
-    bounds = map.getBounds()
-    console.log bounds
+  # map.on 'move', =>
+  #   inBounds = []
+  #   bounds = map.getBounds()
+  #   console.log bounds
 
-    for marker in window.marker_objects
-      if bounds.contains(marker.getLatLng())
-        # console.log marker.options.selector_id
-        inBounds.push(marker)
-        updateListing(inBounds)
+  #   for marker in window.marker_objects
+  #     if bounds.contains(marker.getLatLng())
+  #       # console.log marker.options.selector_id
+  #       inBounds.push(marker)
+  #       updateListing(inBounds)
 
-  updateListing = (arr) ->
-    # console.log arr.join(', ')
-    newArr = $.map arr, (a) ->
-      "#" + a.options.selector_id
-    ids = newArr.join(', ')
+  # updateListing = (arr) ->
+  #   # console.log arr.join(', ')
+  #   newArr = $.map arr, (a) ->
+  #     "#" + a.options.selector_id
+  #   ids = newArr.join(', ')
 
-    console.log ids
+  #   console.log ids
 
-    $('.business').not(ids).addClass('dimmed')
-    $(ids).removeClass('dimmed')
+  #   $('.business').not(ids).addClass('dimmed')
+  #   $(ids).removeClass('dimmed')
 
 singleMap = ->
   $item = $('.business-item')
