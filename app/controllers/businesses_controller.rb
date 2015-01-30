@@ -65,7 +65,7 @@ class BusinessesController < ApplicationController
       @lng = request.location.data["longitude"]
     end
 
-    if @parking_type
+    if @parking_type and @parking_type != ''
       @businesses = Business.joins(:parking_options).where("parking_options.name" => @parking_type.titleize.gsub('-','')).near([@lat, @lng], @distance).reorder('distance').limit(@limit)
     else
       @businesses = Business.near([@lat, @lng], @distance).reorder('distance').limit(@limit)
