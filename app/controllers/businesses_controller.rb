@@ -58,13 +58,18 @@ class BusinessesController < ApplicationController
     @lng = params["lng"]
     @limit = params["limit"].to_i
     @distance = params["distance"].to_f
+    @parking_type = params["parking_type"]
     
     if !@lat or !@lng
       @lat = request.location.data["latitude"]
       @lng = request.location.data["longitude"]
     end
 
-    @businesses = Business.near([@lat, @lng], @distance).reorder('distance').limit(@limit)
+    if @parking_type
+      @businesses = Business.joins(:parking_options).where("parking_options.name" => @parking_type.titleize.gsub('-','')).near([@lat, @lng], @distance).reorder('distance').limit(@limit)
+    else
+      @businesses = Business.near([@lat, @lng], @distance).reorder('distance').limit(@limit)
+    end
 
     respond_with(@businesses)
   end
