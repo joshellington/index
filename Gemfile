@@ -66,3 +66,6 @@ gem 'will_paginate'
 
 # CORS support
 gem 'rack-cors', :require => 'rack/cors'
+
+# Searching
+gem 'dusen'

@@ -71,7 +71,23 @@ class BusinessesController < ApplicationController
       @businesses = Business.near([@lat, @lng], @distance).reorder('distance').limit(@limit)
     end
 
-    respond_with(@businesses)
+    respond_to do |format|
+      format.html { render json: @businesses }
+      format.json { render json: @businesses }
+    end
+  end
+
+  def search
+    @query = params["q"]
+
+    if @query
+      @results = Business.search(@query)
+
+      respond_to do |format|
+        format.html { render json: @results }
+        format.json { render json: @results }
+      end
+    end
   end
 
   # POST /businesses

@@ -41,6 +41,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    dusen (0.4.10)
+      activerecord
+      edge_rider (>= 0.2.5)
+    edge_rider (0.3.0)
+      activerecord
     erubis (2.7.0)
     execjs (2.2.2)
     faraday (0.9.1)
@@ -147,6 +152,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
   coffee-rails (~> 4.0.0)
+  dusen
   geocoder
   google_places
   jbuilder (~> 2.0)
