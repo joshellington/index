@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128232631) do
+ActiveRecord::Schema.define(version: 20150201082558) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -71,6 +71,35 @@ ActiveRecord::Schema.define(version: 20150128232631) do
     t.datetime "updated_at"
   end
 
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "datetime_local"
+    t.string   "short_title"
+    t.string   "datetime_utc"
+    t.integer  "score"
+    t.string   "event_type"
+    t.integer  "seatgeek_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events_performers", force: true do |t|
+    t.integer "event_id"
+    t.integer "performer_id"
+  end
+
+  add_index "events_performers", ["event_id"], name: "index_events_performers_on_event_id", using: :btree
+  add_index "events_performers", ["performer_id"], name: "index_events_performers_on_performer_id", using: :btree
+
+  create_table "events_venues", force: true do |t|
+    t.integer "event_id"
+    t.integer "venue_id"
+  end
+
+  add_index "events_venues", ["event_id"], name: "index_events_venues_on_event_id", using: :btree
+  add_index "events_venues", ["venue_id"], name: "index_events_venues_on_venue_id", using: :btree
+
   create_table "neighborhoods", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -81,6 +110,39 @@ ActiveRecord::Schema.define(version: 20150128232631) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "performers", force: true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "url"
+    t.string   "image"
+    t.string   "image_large"
+    t.string   "image_huge"
+    t.integer  "seatgeek_id"
+    t.string   "score"
+    t.string   "performer_type"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
+  end
+
+  create_table "venues", force: true do |t|
+    t.string   "city"
+    t.string   "name"
+    t.string   "url"
+    t.string   "country"
+    t.string   "state"
+    t.integer  "score"
+    t.string   "postal_code"
+    t.float    "lat",         limit: 24
+    t.float    "lng",         limit: 24
+    t.string   "address"
+    t.integer  "seatgeek_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
 end

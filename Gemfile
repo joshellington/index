@@ -43,8 +43,14 @@ gem 'unicorn'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Awesome printing
+gem 'awesome_print'
+
 # Yelp
 gem 'yelp', require: 'yelp'
+
+# Seatgeek for events
+gem 'seatgeek'
 
 # Google Places
 gem 'google_places', require: 'google_places'
@@ -69,3 +75,6 @@ gem 'rack-cors', :require => 'rack/cors'
 
 # Searching
 gem 'dusen'
+
+# Crons
+gem 'whenever', :require => false
